@@ -8,21 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		51A7D6182AA0FD1500765534 /* Logger_MaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D6172AA0FD1500765534 /* Logger_MaxApp.swift */; };
-		51A7D61A2AA0FD1500765534 /* Logger_MaxDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D6192AA0FD1500765534 /* Logger_MaxDocument.swift */; };
+		51A7D61A2AA0FD1500765534 /* Lograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D6192AA0FD1500765534 /* Lograph.swift */; };
 		51A7D61C2AA0FD1500765534 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D61B2AA0FD1500765534 /* ContentView.swift */; };
 		51A7D61E2AA0FD1700765534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A7D61D2AA0FD1700765534 /* Assets.xcassets */; };
 		51A7D6212AA0FD1700765534 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A7D6202AA0FD1700765534 /* Preview Assets.xcassets */; };
+		51A7D62B2AA1089300765534 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 51A7D62A2AA1089300765534 /* Localizable.xcstrings */; };
+		51A7D62D2AA109D700765534 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D62C2AA109D700765534 /* LineChart.swift */; };
+		51A7D62F2AA10E9B00765534 /* GraphModification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D62E2AA10E9B00765534 /* GraphModification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		51A7D6142AA0FD1500765534 /* Logger Max.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Logger Max.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51A7D6172AA0FD1500765534 /* Logger_MaxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger_MaxApp.swift; sourceTree = "<group>"; };
-		51A7D6192AA0FD1500765534 /* Logger_MaxDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger_MaxDocument.swift; sourceTree = "<group>"; };
+		51A7D6192AA0FD1500765534 /* Lograph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lograph.swift; sourceTree = "<group>"; };
 		51A7D61B2AA0FD1500765534 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		51A7D61D2AA0FD1700765534 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51A7D6202AA0FD1700765534 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		51A7D6222AA0FD1700765534 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51A7D6232AA0FD1700765534 /* Logger_Max.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Logger_Max.entitlements; sourceTree = "<group>"; };
+		51A7D62A2AA1089300765534 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		51A7D62C2AA109D700765534 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		51A7D62E2AA10E9B00765534 /* GraphModification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphModification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +62,15 @@
 			isa = PBXGroup;
 			children = (
 				51A7D6172AA0FD1500765534 /* Logger_MaxApp.swift */,
-				51A7D6192AA0FD1500765534 /* Logger_MaxDocument.swift */,
+				51A7D6192AA0FD1500765534 /* Lograph.swift */,
 				51A7D61B2AA0FD1500765534 /* ContentView.swift */,
+				51A7D62C2AA109D700765534 /* LineChart.swift */,
+				51A7D62E2AA10E9B00765534 /* GraphModification.swift */,
 				51A7D61D2AA0FD1700765534 /* Assets.xcassets */,
 				51A7D6222AA0FD1700765534 /* Info.plist */,
 				51A7D6232AA0FD1700765534 /* Logger_Max.entitlements */,
 				51A7D61F2AA0FD1700765534 /* Preview Content */,
+				51A7D62A2AA1089300765534 /* Localizable.xcstrings */,
 			);
 			path = "Logger Max";
 			sourceTree = "<group>";
@@ -116,6 +125,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fi,
 			);
 			mainGroup = 51A7D60B2AA0FD1500765534;
 			productRefGroup = 51A7D6152AA0FD1500765534 /* Products */;
@@ -133,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51A7D6212AA0FD1700765534 /* Preview Assets.xcassets in Resources */,
+				51A7D62B2AA1089300765534 /* Localizable.xcstrings in Resources */,
 				51A7D61E2AA0FD1700765534 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,8 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51A7D62F2AA10E9B00765534 /* GraphModification.swift in Sources */,
+				51A7D62D2AA109D700765534 /* LineChart.swift in Sources */,
 				51A7D6182AA0FD1500765534 /* Logger_MaxApp.swift in Sources */,
-				51A7D61A2AA0FD1500765534 /* Logger_MaxDocument.swift in Sources */,
+				51A7D61A2AA0FD1500765534 /* Lograph.swift in Sources */,
 				51A7D61C2AA0FD1500765534 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +299,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Logger Max/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,6 +328,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Logger Max/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

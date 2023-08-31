@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct Logger_MaxApp: App {
     var body: some Scene {
-        DocumentGroup(newDocument: Logger_MaxDocument()) { file in
+        DocumentGroup(newDocument: Lograph()) { file in
             ContentView(document: file.$document)
         }
+        .windowToolbarStyle(.unified)
     }
 }
