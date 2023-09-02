@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		513480D32AA35CC10029DB83 /* Lograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D6192AA0FD1500765534 /* Lograph.swift */; };
 		51A7D6182AA0FD1500765534 /* Logger_MaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D6172AA0FD1500765534 /* Logger_MaxApp.swift */; };
-		51A7D61A2AA0FD1500765534 /* Lograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D6192AA0FD1500765534 /* Lograph.swift */; };
 		51A7D61C2AA0FD1500765534 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7D61B2AA0FD1500765534 /* ContentView.swift */; };
 		51A7D61E2AA0FD1700765534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A7D61D2AA0FD1700765534 /* Assets.xcassets */; };
 		51A7D6212AA0FD1700765534 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A7D6202AA0FD1700765534 /* Preview Assets.xcassets */; };
@@ -155,10 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				513480D32AA35CC10029DB83 /* Lograph.swift in Sources */,
 				51A7D62F2AA10E9B00765534 /* GraphModification.swift in Sources */,
 				51A7D62D2AA109D700765534 /* LineChart.swift in Sources */,
 				51A7D6182AA0FD1500765534 /* Logger_MaxApp.swift in Sources */,
-				51A7D61A2AA0FD1500765534 /* Lograph.swift in Sources */,
 				51A7D61C2AA0FD1500765534 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

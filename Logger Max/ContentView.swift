@@ -11,38 +11,33 @@ struct ContentView: View {
     @Binding var document: Lograph
     @State private var inspecting: Bool = false
     @State private var slid: Float = 0
-
+    @State private var current: Int = 0
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(document.graphs) { graph in
-                    Section {
-                        GraphModification(graph: graph)
-                    }
-                }
+        NavigationStack {
+            HStack {
+                GraphModification(graph: $document.graphs[current])
+                LineChart(graph: $document.graphs[current])
+                    .padding()
             }
-        } detail: {
-            VStack {
-                LineChart(graph: document.graphs[0])
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .automatic) {
-                    Button {
+            .navigationSubtitle(document.graphs[current].name)
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .automatic) {
+                Button {
 
-                    } label: {
-                        Label("functions.interpolate", systemImage: "chart.xyaxis.line")
-                    }
-                    Button {
-                        inspecting.toggle()
-                    } label: {
-                        Label("navigation.inspector", systemImage: "sidebar.right")
-                    }
+                } label: {
+                    Label("functions.interpolate", systemImage: "chart.xyaxis.line")
+                }
+                Button {
+                    inspecting.toggle()
+                } label: {
+                    Label("navigation.inspector", systemImage: "sidebar.right")
                 }
             }
-            .navigationTitle(document.graphs.first!.name)
-            .inspector(isPresented: $inspecting) {
-                Slider(value: $slid)
-            }
+        }
+        .inspector(isPresented: $inspecting) {
+            Slider(value: $slid)
         }
     }
 }

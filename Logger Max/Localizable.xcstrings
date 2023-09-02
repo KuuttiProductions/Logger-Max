@@ -1,6 +1,38 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "button.addCell" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add cell"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lisää solu"
+          }
+        }
+      }
+    },
+    "button.remove" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poista"
+          }
+        }
+      }
+    },
     "functions.interpolate" : {
       "localizations" : {
         "en" : {
@@ -17,8 +49,30 @@
         }
       }
     },
+    "graph.name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Graph's name"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kuvaajan nimi"
+          }
+        }
+      }
+    },
     "navigation.inspector" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show inspector"
+          }
+        },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26,6 +80,51 @@
           }
         }
       }
+    },
+    "x" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "x"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "x"
+          }
+        }
+      }
+    },
+    "x.axis" : {
+      "localizations" : {
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "x-akseli"
+          }
+        }
+      }
+    },
+    "y" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "y"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "y"
+          }
+        }
+      }
+    },
+    "y.axis" : {
+
     }
   },
   "version" : "1.0"

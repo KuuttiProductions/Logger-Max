@@ -15,7 +15,7 @@ extension UTType {
 }
 
 struct Cell: Codable, Identifiable {
-    var id: UUID = UUID()
+    var id = UUID()
     var x: Double
     var y: Double
 }
@@ -25,15 +25,42 @@ struct GraphData: Codable, Identifiable {
     var name: String
     var xAxisName: String
     var yAxisName: String
+    var xAxisDomain: [Int]
+    var yAxisDomain: [Int]
     var cells: [Cell]
+    
+    init(name: String, xAxisName: String, yAxisName: String) {
+        self.name = name
+        self.xAxisName = xAxisName
+        self.yAxisName = yAxisName
+        self.xAxisDomain = []
+        self.yAxisDomain = []
+        self.cells = [
+            Cell(x: 0, y: 0),
+            Cell(x: 0, y: 0),
+            Cell(x: 0, y: 0),
+            Cell(x: 0, y: 0),
+            Cell(x: 0, y: 0)
+        ]
+    }
+    
+    init(name: String, xAxisName: String, yAxisName: String, cells: [Cell]) {
+        self.name = name
+        self.xAxisName = xAxisName
+        self.yAxisName = yAxisName
+        self.yAxisName = yAxisName
+        self.xAxisDomain = []
+        self.yAxisDomain = []
+        self.cells = cells
+    }
 }
 
 struct Lograph: FileDocument, Codable {
     
     var graphs: [GraphData]
-
-    init(name: String = "Empty graph") {
-        let defaultGraph = GraphData(name: name, xAxisName: "X", yAxisName: "Y", cells: [])
+    
+    init() {
+        let defaultGraph = GraphData(name: "", xAxisName: "X", yAxisName: "Y")
         
         self.graphs = [defaultGraph]
     }
