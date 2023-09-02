@@ -29,16 +29,17 @@ struct GraphModification: View {
                     .multilineTextAlignment(.center)
             }
             List {
-                ForEach($graph.cells, id: \.id) { $cell in
+                ForEach($graph.cells, id: \.id, editActions: .move) { $cell in
                     HStack {
                         TextField("x", value: $cell.x, format: .number)
                             .textFieldStyle(.squareBorder)
                         TextField("y", value: $cell.y, format: .number)
                             .textFieldStyle(.squareBorder)
                     }
+                    .listRowSeparator(.hidden)
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
-                            graph.cells.removeLast()
+                            deleteCell(remove: cell)
                         } label: {
                             Label("button.remove", systemImage: "trash")
                         }
@@ -51,9 +52,20 @@ struct GraphModification: View {
                 }
             }
             .listStyle(.plain)
-            .listRowSeparator(.hidden)
-            .listSectionSeparator(.hidden)
+            .scrollContentBackground(.hidden)
         }
+        .background()
+    }
+    
+    func deleteCell(remove: Cell) {
+        var index = 0
+        for i in graph.cells.enumerated() {
+            if i.element.id == remove.id {
+                index = i.offset
+                break
+            }
+        }
+        graph.cells.remove(at: index)
     }
 }
 

@@ -25,16 +25,17 @@ struct GraphData: Codable, Identifiable {
     var name: String
     var xAxisName: String
     var yAxisName: String
-    var xAxisDomain: [Int]
-    var yAxisDomain: [Int]
+    var xAxisDomain: [Double]
+    var yAxisDomain: [Double]
     var cells: [Cell]
+    var interpolate: Bool
     
     init(name: String, xAxisName: String, yAxisName: String) {
         self.name = name
         self.xAxisName = xAxisName
         self.yAxisName = yAxisName
-        self.xAxisDomain = []
-        self.yAxisDomain = []
+        self.xAxisDomain = [0, 1]
+        self.yAxisDomain = [0, 1]
         self.cells = [
             Cell(x: 0, y: 0),
             Cell(x: 0, y: 0),
@@ -42,6 +43,7 @@ struct GraphData: Codable, Identifiable {
             Cell(x: 0, y: 0),
             Cell(x: 0, y: 0)
         ]
+        self.interpolate = false
     }
     
     init(name: String, xAxisName: String, yAxisName: String, cells: [Cell]) {
@@ -52,6 +54,7 @@ struct GraphData: Codable, Identifiable {
         self.xAxisDomain = []
         self.yAxisDomain = []
         self.cells = cells
+        self.interpolate = false
     }
 }
 
@@ -61,7 +64,6 @@ struct Lograph: FileDocument, Codable {
     
     init() {
         let defaultGraph = GraphData(name: "", xAxisName: "X", yAxisName: "Y")
-        
         self.graphs = [defaultGraph]
     }
 
@@ -72,6 +74,7 @@ struct Lograph: FileDocument, Codable {
             throw CocoaError(.fileReadCorruptFile)
         }
         self.graphs = try! JSONDecoder().decode(Self.self, from: data).graphs
+        self.graphs[0].interpolate = false
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {

@@ -65,6 +65,16 @@
         }
       }
     },
+    "inspector.graph" : {
+      "localizations" : {
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kuvaajan asetukset"
+          }
+        }
+      }
+    },
     "navigation.inspector" : {
       "localizations" : {
         "en" : {
@@ -99,6 +109,12 @@
     },
     "x.axis" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "x-axes"
+          }
+        },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -124,7 +140,14 @@
       }
     },
     "y.axis" : {
-
+      "localizations" : {
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "y-akseli"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
