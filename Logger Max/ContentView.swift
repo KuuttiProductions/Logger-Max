@@ -11,6 +11,9 @@ struct ContentView: View {
     @Binding var document: Lograph
     @State private var inspecting: Bool = false
     @State private var current: Int = 0
+    @State private var showInfo: Bool = false
+    @State private var intercept: Double = 0.0
+    @State private var slope: Double = 0.0
     
     var body: some View {
         NavigationStack {
@@ -18,7 +21,9 @@ struct ContentView: View {
                 GraphModification(graph: $document.graphs[current])
                     .frame(minWidth: 100, maxWidth: 300, minHeight: 200)
                 LineChart(graph: $document.graphs[current],
-                          showInterpolation: $document.graphs[current].interpolate)
+                          showInterpolation: $document.graphs[current].interpolate,
+                          intercept: $intercept,
+                          slope: $slope)
                     .frame(minWidth: 200, minHeight: 200)
             }
             .navigationSubtitle(document.graphs[current].name)
@@ -27,10 +32,24 @@ struct ContentView: View {
         .toolbar {
             ToolbarItemGroup(placement: .automatic) {
                 Button {
+                    showInfo.toggle()
+                } label: {
+                    Label("graph.showInfo", systemImage: "info.circle")
+                }
+                .popover(isPresented: $showInfo, attachmentAnchor: .point(.center), arrowEdge: .bottom) {
+                    VStack {
+                        Text("slope.text: \(slope)")
+                        Text("intercept.text: \(intercept)")
+                    }
+                    .padding()
+                }
+                Button {
                     document.graphs[current].interpolate.toggle()
+                    linearRegression()
                 } label: {
                     Label("functions.interpolate", systemImage: "chart.xyaxis.line")
                 }
+                Spacer()
                 Button {
                     inspecting.toggle()
                 } label: {
@@ -56,6 +75,30 @@ struct ContentView: View {
             }
             .inspectorColumnWidth(min: 200, ideal: 300, max: 400)
         }
+        .onAppear() {
+            linearRegression()
+        }
+    }
+
+    func linearRegression() {
+        let points = document.graphs[current].cells
+        let n = Double(points.count)
+        
+        // Calculate the sum of x, y, xy, x^2
+        let sumX = points.reduce(0) { $0 + $1.x }
+        let sumY = points.reduce(0) { $0 + $1.y }
+        
+        var sumXY: Double = 0.0
+        var sumX2: Double = 0.0
+        
+        for point in points {
+            sumXY += point.x * point.y
+            sumX2 += point.x * point.x
+        }
+        
+        // Calculate the slope (m) and intercept (b)
+        slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX)
+        intercept = (sumY - slope * sumX) / n
     }
 }
 

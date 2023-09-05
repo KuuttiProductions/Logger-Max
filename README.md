@@ -6,7 +6,7 @@ To do:
 - [x] Initials
 - [x] Trendline
 - [x] Slope and intersect
-- [ ] Interpolation
+- [x] Interpolation
 - [ ] Extrapolation
 - [ ] Multiple datasets in one graph
 - [ ] Visualization options

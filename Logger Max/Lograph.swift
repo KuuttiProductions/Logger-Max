@@ -51,8 +51,8 @@ struct GraphData: Codable, Identifiable {
         self.xAxisName = xAxisName
         self.yAxisName = yAxisName
         self.yAxisName = yAxisName
-        self.xAxisDomain = []
-        self.yAxisDomain = []
+        self.xAxisDomain = [0, 1]
+        self.yAxisDomain = [0, 1]
         self.cells = cells
         self.interpolate = false
     }

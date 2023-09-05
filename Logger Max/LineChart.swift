@@ -11,9 +11,14 @@ import Charts
 struct LineChart: View {
     @Binding var graph: GraphData
     @Binding var showInterpolation: Bool
+    @Binding var intercept: Double
+    @Binding var slope: Double
+    @State private var rawSelectedPos: Double?
+    var selectedPos: Double? { return rawSelectedPos }
     
     var body: some View {
         VStack {
+            Spacer(minLength: 30.0)
             Chart {
                 ForEach(graph.cells, id: \.id) { cell in
                     PointMark(
@@ -27,20 +32,35 @@ struct LineChart: View {
                 if showInterpolation {
                     LineMark(
                         x: .value(graph.xAxisName, 0),
-                        y: .value(graph.yAxisName, linearRegression().intercept)
+                        y: .value(graph.yAxisName, intercept)
                     )
                     LineMark(
                         x: .value(graph.xAxisName, getLastPos()),
-                        y: .value(graph.yAxisName, linearRegression().intercept + linearRegression().slope*getLastPos())
+                        y: .value(graph.yAxisName, intercept + slope*getLastPos())
                     )
                 }
+                if let selectedPos {
+                    RuleMark(x: .value("x", selectedPos))
+                        .zIndex(-1)
+                        .foregroundStyle(.gray)
+                        .offset(yStart: -10)
+                        .annotation(position: .top,
+                                    spacing: 0,
+                                    overflowResolution: .init(
+                                        x: .fit(to: .chart),
+                                        y: .disabled
+                                    )) {
+                                        GraphSelection(yAxisName: $graph.yAxisName,
+                                                       yValue: selectedPos)
+                                    }
+                }
             }
-            .chartLegend(.hidden)
             .chartXAxisLabel(graph.xAxisName)
             .chartYAxisLabel(graph.yAxisName)
-            .foregroundStyle(Gradient(colors: [.cyan, .blue]))
+            .foregroundStyle(Color.accent)
             .chartXScale(domain: graph.xAxisDomain)
             .chartYScale(domain: graph.yAxisDomain)
+            .chartXSelection(value: $rawSelectedPos)
         }
         .padding()
     }
@@ -54,31 +74,30 @@ struct LineChart: View {
         }
         return furthest
     }
+}
+
+struct GraphSelection: View {
+    @Binding var yAxisName: String
+    var yValue: Double?
     
-    func linearRegression()-> (slope: Double, intercept: Double) {
-        let points = graph.cells
-        let n = Double(points.count)
-        
-        // Calculate the sum of x, y, xy, x^2
-        let sumX = points.reduce(0) { $0 + $1.x }
-        let sumY = points.reduce(0) { $0 + $1.y }
-        
-        var sumXY: Double = 0.0
-        var sumX2: Double = 0.0
-        
-        for point in points {
-            sumXY += point.x * point.y
-            sumX2 += point.x * point.x
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 5, style: .continuous)
+                .foregroundStyle(.gray.quinary)
+            VStack(alignment: .leading) {
+                Text("graph.point.values")
+                    .fontWeight(.semibold)
+                Text("\(yAxisName): \(yValue!)")
+            }
+            .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
         }
-        
-        // Calculate the slope (m) and intercept (b)
-        let slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX)
-        let intercept = (sumY - slope * sumX) / n
-        
-        return (slope, intercept)
     }
 }
 
 #Preview {
-    LineChart(graph: .constant(GraphData(name: "Nopea liikkuja", xAxisName: "t(s)", yAxisName: "x(m)", cells: [Cell(x: 0, y: 0), Cell(x: 3, y: 1.8), Cell(x: 6, y: 7.6)])), showInterpolation: .constant(true))
+    LineChart(graph: .constant(GraphData(name: "h", xAxisName: "X", yAxisName: "Y",
+                               cells: [Cell(x: 0, y: 0), Cell(x: 1, y: 1)])),
+              showInterpolation: .constant(true),
+              intercept: .constant(0.0),
+              slope: .constant(1.0))
 }

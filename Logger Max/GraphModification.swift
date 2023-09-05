@@ -12,6 +12,7 @@ struct GraphModification: View {
     
     var body: some View {
         VStack {
+            Spacer()
             TextField("graph.name", text: $graph.name)
                 .font(.title)
                 .multilineTextAlignment(.center)

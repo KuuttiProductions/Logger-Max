@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@: %lf" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$lf"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@: %2$lf"
+          }
+        }
+      }
+    },
     "button.addCell" : {
       "localizations" : {
         "en" : {
@@ -65,12 +81,42 @@
         }
       }
     },
+    "graph.point.values" : {
+      "localizations" : {
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arvot pisteessä"
+          }
+        }
+      }
+    },
+    "graph.showInfo" : {
+      "localizations" : {
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Näytä kuvaajan tiedot"
+          }
+        }
+      }
+    },
     "inspector.graph" : {
       "localizations" : {
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kuvaajan asetukset"
+          }
+        }
+      }
+    },
+    "intercept.text: %lf" : {
+      "localizations" : {
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vakiotermi: %1f"
           }
         }
       }
@@ -87,6 +133,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Näytä inspektori"
+          }
+        }
+      }
+    },
+    "slope.text: %lf" : {
+      "localizations" : {
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kulmakerroin: %1f"
           }
         }
       }
